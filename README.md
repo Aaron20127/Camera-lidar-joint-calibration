@@ -6,7 +6,7 @@ This is a sample method to calibrate camera and lidar jointly. I think this meth
 
 ### 1. Required software ###
 
-1.PolyWorks 2019.
+1.PolyWorks 2019.  
 2.Matlab 2019a.
 
 ### 2. Procedure ###
