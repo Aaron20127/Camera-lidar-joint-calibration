@@ -17,7 +17,7 @@ Doawload this code and perform the following steps.
 
 1.Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
 2.Pose of calibration board in image must look like the one shown below (first row is wrong pose):
-![](chessboard.png)
+![](chessboard.jpg)
 
 * **Data Storage**
 
