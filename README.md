@@ -15,9 +15,9 @@ Doawload this code and perform the following steps.
 
 * **Calibration board requirements**
 
-1.Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
-2.Pose of calibration board in image must look like the one shown below (first row is wrong pose):
-.<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/chessboard.jpg" width="300" height="450" /></div>
+1. Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
+2. Pose of calibration board in image must look like the one shown below (first row is wrong pose):
+.<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/chessboard.jpg" width="450" height="450" /></div>
 
 * **Data Storage**
 
