@@ -13,7 +13,7 @@ This is a sample method to calibrate camera and lidar jointly. I think this meth
 
 Doawload this code and perform the following steps.
 
-* **base requirements**
+* **Base requirements**
 1. All images must be undistorted. This matter is of the utmost importance.
 2. Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
 3. The degree of corner between y-axis of image and the long side of chessbooard should less than 45, and they shouldn't be completely parallel. Pose of calibration board in image must look like second row shown below (first row is wrong pose):
