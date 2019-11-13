@@ -16,15 +16,16 @@ Doawload this code and perform the following steps.
 * **Base requirements**
 1. All images must be undistorted. This matter is of the utmost importance.
 2. Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
-3. The degree of corner between y-axis of image and the long side of chessbooard should less than 45, and they shouldn't be completely parallel. Pose of calibration board in image must look like second row shown below (first row is wrong pose):
-<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/chessboard.jpg" width="350" height="350" /></div>
-4. The degree of corner between z-axis of lidar and the long side of chessbooard should less than 45, and they shouldn't be completely parallel. for example:
+3. The short edge of the chessboard should be at the top of the image. The edges of the checkerboard cannot be parallel to the edges of the image. Pose of chessboard in image must look like second row shown below (first row is wrong pose):
+<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/chessboard.jpg" width="350" height="350" /></div>  
+
+4. The short edge of the chessboard of pointcloud should be at the top of the z-axis direction  of lidar. The edges of the checkerboard of pointcloud cannot be parallel to the z-axis of lidar.
 <div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/lidar.jpg" width="350" height="350" /></div>
 
 * **Data Storage**
 
-1. Put your camera images (.png) into `data/images` and you have to name it numerically.
-2. Put your lidar data (.txt) into `data/pointcloud` and each line of the file has only xyz coordinates, for example:
+1. Put your camera images (`.png`) into `data/images` and you have to name it numerically.
+2. Put your lidar data (`.txt`) into `data/pointcloud` and each line of the file has only xyz coordinates, for example:
 ```
     0.5363237262 -0.3014609218 -0.1039963961
     0.5608119369 -0.3181324303 -0.1093295515
@@ -32,8 +33,14 @@ Doawload this code and perform the following steps.
     0.6180613041 -0.3567755520 -0.1217735633
     ...
 ```
+3. You can use command below to covert `.pcd` file to `.txt` file in linux.
+```
+$ pcl_converter -f ascii 1.pcd dst.pcd
+$ cat dst.pcd | grep -v [A-Z] | grep -v [a-z] | cut -f 1,2,3 -d ' ' > 1.txt
+```
 
-* **Fit the chessboad in the point cloud**
+
+* **Fit the chessboad to square in the point cloud**
 
 1. open PolyWorks2019 -> tool -> PolyWorks|inspector.
 ![](readme/fit_chessboard_1.jpg)
@@ -110,7 +117,7 @@ Doawload this code and perform the following steps.
 
 * **Notes**
 
-1. The Projection formula from point cloud to image looks like this
+1. The projection formula from point cloud to image looks like this
 ```
     Pc = K * R * (Pw - T)
 ```
