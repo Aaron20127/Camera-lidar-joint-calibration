@@ -17,9 +17,9 @@ Doawload this code and perform the following steps.
 1. All images must be undistorted. This matter is of the utmost importance.
 2. Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
 3. The degree of corner between y-axis of image and the long side of chessbooard should less than 45, and they shouldn't be completely parallel. Pose of calibration board in image must look like second row shown below (first row is wrong pose):
-.<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/chessboard.jpg" width="350" height="350" /></div>
+<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/chessboard.jpg" width="350" height="350" /></div>
 4. The degree of corner between z-axis of lidar and the long side of chessbooard should less than 45, and they shouldn't be completely parallel. for example:
-.<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/lidar.jpg" width="350" height="350" /></div>
+<div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/lidar.jpg" width="350" height="350" /></div>
 
 * **Data Storage**
 
