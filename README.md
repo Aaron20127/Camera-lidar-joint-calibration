@@ -16,7 +16,7 @@ Doawload this code and perform the following steps.
 * **Base requirements**
 1. All images must be undistorted. This matter is of the utmost importance.
 2. Calibration board requires black and white checkerboard lattice and one side is odd, one side is even.
-3. The short edge of the chessboard should be at the top of the image. The edges of the checkerboard cannot be parallel to the edges of the image. Pose of chessboard in image must look like second row shown below (first row is wrong pose):
+3. The short edge of the chessboard should be at the top of the image. The edges of the checkerboard cannot be parallel to the edges of the image. Pose of chessboard in image must look like fisrt row shown below (second row is wrong pose):
 <div align=center><img src="https://github.com/Aaron20127/Camera-lidar-joint-calibration/blob/master/readme/chessboard.jpg" width="350" height="350" /></div>  
 
 4. The short edge of the chessboard of pointcloud should be at the top of the z-axis direction  of lidar. The edges of the checkerboard of pointcloud cannot be parallel to the z-axis of lidar.
