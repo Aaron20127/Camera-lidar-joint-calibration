@@ -184,7 +184,7 @@ function pointcloud = getChessboardPointcloudFromIgs(fileNamesPath, x_grids, y_g
     for i = 1:numel(fileNamesPath)
         % copy file, change filename
         [pathstr,name,suffix] = fileparts(fileNamesPath{i});
-        txt_file_path = [pathstr '\' name '.txt'];
+        txt_file_path = [pathstr '/' name '.txt'];
         copyfile(fileNamesPath{i},txt_file_path);
 
         % read txt file
