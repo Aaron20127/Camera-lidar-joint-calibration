@@ -10,8 +10,8 @@ function main()
     % pointcloud file, only have pointcloud xyz, .txt format 
     pointcloudFileDir = [curdir '/' 'data/pointcloud/'];
     % chessboard grids
-    x_grids = 5; % odd
-    y_grids = 8; % even
+    x_grids = 5; % the number of grids on the short side
+    y_grids = 8; % the number of grids on the long side 
 
     % image point
     imageDir = 'data/images/';
