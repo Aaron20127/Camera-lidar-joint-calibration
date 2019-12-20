@@ -64,7 +64,7 @@ function [R,T] = LM_solvePnP(imagePoints, worldPoints, focalLength, principalPoi
                 intrinsics, 'Confidence', 99.99, 'MaxReprojectionError', 6);
     x0 = [R0(1,:),R0(2,:),R0(3,:),T0];
     xdata = jointWorldPoints;
-    ydata = jointImagePoints;
+    ydata = [jointImagePoints; [0,0;0,0;0,0;1,1;1,1;1,1]]; % add orthogonal matrix constraint
 
     % LM algorithm
     options = optimoptions('lsqcurvefit','Algorithm','levenberg-marquardt');
@@ -77,7 +77,9 @@ function [R,T] = LM_solvePnP(imagePoints, worldPoints, focalLength, principalPoi
 
     [x,resnorm,residual,exitflag,output] = lsqcurvefit(@reProjection,x0,xdata,ydata,lb, ub,options)
     
-    R = reshape(x(1:9),3,3)'
+    R = reshape(x(1:9),3,3)';
+    detR = det(R)
+    R
     T = x(10:12)
 end
 
@@ -91,6 +93,16 @@ function value=reProjection(x, xdata)
     perspectivePoints = M * cameraPoints;
     uvs = perspectivePoints ./ perspectivePoints(end,:);
     value = uvs(1:end-1,:)';
+    
+    % add orthogonal matrix constraint
+    Rl = [dot(R(1,:),R(2,:)), dot(R(1,:), R(3,:)); ...
+          dot(R(2,:),R(3,:)), dot(R(:,1), R(:,2)); ...
+          dot(R(:,1),R(:,3)), dot(R(:,2), R(:,3)); ...
+          norm(R(1,:)),  norm(R(2,:)); ...
+          norm(R(3,:)),  norm(R(:,1)); ...
+          norm(R(:,2)),  norm(R(:,3))]
+           
+    value = [value; Rl];
 end
 
 % get image file path and pointcloud file path
